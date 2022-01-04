@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+message Mini
+{
+	int64 a = 1;
+}
+
+message Base
+{
+	int64 a = 1;
+	repeated Mini b = 2;
+}
+
+message Wrapper
+{
+	repeated Base bases = 1;
+}
+
+message TestObj
+{
+	Wrapper t = 1;
+	repeated int32 z = 2;
+}
