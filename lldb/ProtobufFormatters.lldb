@@ -1,0 +1,4 @@
+type synthetic add -x "^google::protobuf::RepeatedField<.+>$" -l ProtobufFormatters.Protobuf_RepeatedField
+type summary add -x "^google::protobuf::RepeatedField<.+>$" -e -F ProtobufFormatters.Protobuf_RepeatedField_Summary
+type synthetic add -x "^google::protobuf::RepeatedPtrField<.+>$" -l ProtobufFormatters.Protobuf_RepeatedPtrField
+type summary add -x "^google::protobuf::RepeatedPtrField<.+>$" -e -F ProtobufFormatters.Protobuf_RepeatedField_Summary
