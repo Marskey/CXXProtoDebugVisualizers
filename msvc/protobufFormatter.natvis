@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+   <Type Name="google::protobuf::RepeatedField&lt;*&gt;">
+      <DisplayString>{{ size={current_size_} }}</DisplayString>
+      <Expand>
+         <Item Name="[size]" ExcludeView="simple">current_size_</Item>
+         <Item Name="[capacity]" ExcludeView="simple">total_size_</Item>
+         <Item Name="[arena]" Condition="total_size_ == 0 &amp;&amp; arena_or_elements_" ExcludeView="simple">arena_or_elements_</Item>
+         <ArrayItems Condition="total_size_ != 0">
+            <Size>current_size_</Size>
+            <ValuePointer>($T1*)arena_or_elements_</ValuePointer>
+         </ArrayItems>
+      </Expand>
+   </Type>
+   <Type Name="google::protobuf::RepeatedPtrField&lt;*&gt;">
+      <DisplayString>{{ size={current_size_} }}</DisplayString>
+      <Expand>
+         <Item Name="[size]" ExcludeView="simple">current_size_</Item>
+         <Item Name="[capacity]" ExcludeView="simple">total_size_</Item>
+         <Item Name="[arena]" Condition="arena_" ExcludeView="simple">arena_</Item>
+         <ArrayItems Condition="rep_ != 0">
+            <Size>current_size_</Size>
+            <ValuePointer>($T1**)rep_-&gt;elements</ValuePointer>
+         </ArrayItems>
+      </Expand>
+   </Type>
+</AutoVisualizer>
