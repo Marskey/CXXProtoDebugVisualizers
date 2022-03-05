@@ -39,9 +39,9 @@ class Protobuf_RepeatedField:
 
 	def extract_type(self):
 		list_type = self.valobj.GetType().GetUnqualifiedType()
-		if data_type.IsPointerType():
+		if list_type.IsPointerType():
 			list_type = list_type.GetPointeeType()
-		elif data_type.IsReferenceType():
+		elif list_type.IsReferenceType():
 			list_type = list_type.GetDereferencedType()
 
 		if list_type.GetNumberOfTemplateArguments() > 0:
@@ -99,9 +99,9 @@ class Protobuf_RepeatedPtrField:
 
 	def extract_type(self):
 		list_type = self.valobj.GetType().GetUnqualifiedType()
-		if data_type.IsPointerType():
+		if list_type.IsPointerType():
 			list_type = list_type.GetPointeeType()
-		elif data_type.IsReferenceType():
+		elif list_type.IsReferenceType():
 			list_type = list_type.GetDereferencedType()
 
 		if list_type.GetNumberOfTemplateArguments() > 0:
