@@ -37,7 +37,7 @@ class Protobuf_RepeatedField:
 		except:
 			return None
 
-	def self.extract_type():
+	def extract_type(self):
 		list_type = self.valobj.GetType().GetUnqualifiedType()
 		if data_type.IsPointerType():
 			list_type = list_type.GetPointeeType()
@@ -97,7 +97,7 @@ class Protobuf_RepeatedPtrField:
 		except:
 			return None
 
-	def self.extract_type():
+	def extract_type(self):
 		list_type = self.valobj.GetType().GetUnqualifiedType()
 		if data_type.IsPointerType():
 			list_type = list_type.GetPointeeType()
